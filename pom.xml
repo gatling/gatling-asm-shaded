@@ -10,7 +10,7 @@
 
     <groupId>io.gatling</groupId>
     <artifactId>gatling-asm-shaded</artifactId>
-    <version>9.2</version>
+    <version>9.4</version>
     <name>gatling-asm-shaded</name>
     <description>Shaded ASM for Gatling</description>
 
@@ -64,7 +64,7 @@
         <encoding>UTF-8</encoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <asm.version>9.2</asm.version>
+        <asm.version>9.4</asm.version>
 
         <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
