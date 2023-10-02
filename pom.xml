@@ -10,7 +10,7 @@
 
     <groupId>io.gatling</groupId>
     <artifactId>gatling-asm-shaded</artifactId>
-    <version>9.5</version>
+    <version>9.6</version>
     <name>gatling-asm-shaded</name>
     <description>Shaded ASM for Gatling</description>
 
