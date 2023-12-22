@@ -10,7 +10,7 @@
 
     <groupId>io.gatling</groupId>
     <artifactId>gatling-asm-shaded</artifactId>
-    <version>9.6</version>
+    <version>0.0.0</version>
     <name>gatling-asm-shaded</name>
     <description>Shaded ASM for Gatling</description>
 
@@ -62,8 +62,7 @@
 
     <properties>
         <encoding>UTF-8</encoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.release>11</maven.compiler.release>
         <asm.version>9.6</asm.version>
 
         <maven-shade-plugin.version>3.5.1</maven-shade-plugin.version>
@@ -123,25 +122,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>${maven-gpg-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <gpgArguments>
-                        <arg>--pinentry-mode</arg>
-                        <arg>loopback</arg>
-                    </gpgArguments>
-                </configuration>
-            </plugin>
-            <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>${maven-jar-plugin.version}</version>
                 <executions>
@@ -167,4 +147,33 @@
             <version>${asm.version}</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>Release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
