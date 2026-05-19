@@ -63,7 +63,7 @@
     <properties>
         <encoding>UTF-8</encoding>
         <maven.compiler.release>11</maven.compiler.release>
-        <asm.version>9.9.1</asm.version>
+        <asm.version>9.10</asm.version>
 
         <maven-shade-plugin.version>3.6.2</maven-shade-plugin.version>
         <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
