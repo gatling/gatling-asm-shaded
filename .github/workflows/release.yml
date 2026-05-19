@@ -32,6 +32,15 @@ jobs:
         run: |
           echo -n "$SONATYPE_PGP_SECRET" | base64 --decode | gpg --batch --import
 
+      - name: Check version
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "Detected version: $VERSION"
+          if [ "$VERSION" = "0.0.0" ]; then
+            echo "ERROR: version resolved to 0.0.0 — the tag must follow the format v<major>.<minor>.<patch> (e.g. v9.10.0)"
+            exit 1
+          fi
+
       - name: Deploy
         env:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
